@@ -1,0 +1,5 @@
+[user]
+	name =
+	mail =
+[core]
+	excludesfile = ~/.gitignore
