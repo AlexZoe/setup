@@ -1,7 +1,6 @@
 syntax on
-"filetype plugin indent on
+filetype plugin on
 set number
-" Display row/column in status bar
 set ru
 " Look also in /usr/share/vim/vim*/colors
 colorscheme custom
@@ -9,15 +8,14 @@ autocmd VimEnter * source /usr/share/vim/vim81/colors/custom.vim
 " Set mouse support
 set mouse=a
 
+set expandtab ts=2 sw=2
+
+set nofoldenable
+set foldlevel=20
+set foldmethod=syntax
+
 set tags=tags
 set cscoperelative
-
-command! GenerateTags call Cmd()
-
-function! Cmd()
-	silent! execute '! $HOME/.vim/plugin/gen_tags.sh &> /dev/null &'
-	redraw!
-endfunction
 
 " Pathogen settings
 runtime bundle/vim-pathogen/autoload/pathogen.vim
@@ -60,3 +58,29 @@ cnoremap kj <C-C>
 "    * skip:         `<C-x>` skip the next match
 "    * prev:         `<C-p>` remove current _virtual cursor + selection_ and go back on previous match
 "  * select all:     `<A-n>` start muticursor and directly select all matches
+
+" Convert file to hex
+command! Hex call ConvertToHex()
+function ConvertToHex()
+  silent! :e ++bin
+  silent! :%!xxd
+endfunction
+
+command! GenerateTags call Cmd()
+function! Cmd()
+	silent! execute '! $HOME/.vim/plugin/gen_tags.sh &> /dev/null &'
+	redraw!
+endfunction
+
+let g:syntastic_cpp_checkers=['cpplint']
+let g:syntastic_cpp_cpplint_args = '--headers=hpp'
+let g:syntastic_enable_cpp_checker = 1
+let g:syntastic_cpp_check_header = 1
+
+let g:syntastic_rust_checkers=['cargo']
+
+let g:syntastic_check_on_open = 1
+let g:tagbar_left = 1
+
+" Use G=gg to apply formatting
+autocmd Filetype c,cpp,proto setlocal equalprg=clang-format
