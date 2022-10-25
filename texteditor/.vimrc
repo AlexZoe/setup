@@ -3,8 +3,8 @@ filetype plugin on
 set number
 set ru
 " Look also in /usr/share/vim/vim*/colors
-colorscheme custom
-autocmd VimEnter * source /usr/share/vim/vim81/colors/custom.vim
+" colorscheme custom
+" autocmd VimEnter * source /usr/share/vim/vim81/colors/custom.vim
 " Set mouse support
 set mouse=a
 
@@ -27,7 +27,7 @@ execute pathogen#infect()
 " autocmd VimEnter * NERDTree
 
 " Swap file directory
-:set directory^=~$HOME/.vim/swapfiles/
+:set directory^=$HOME/.vim/swapfiles/
 
 " Show trailing whitespace and mark red
 highlight ExtraWhitespace ctermbg=red guibg=red
