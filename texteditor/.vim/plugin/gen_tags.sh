@@ -2,11 +2,18 @@
 
 SRC_LOC="./"
 declare -a LANGUAGES=( "c" "c++" "Rust" )
-declare -a FILE_TYPE=( "c" "cc" "cpp" "cu" "h" "hpp" "cuh" "rs" )
+FILE_TYPE=".*\.(c|cc|cpp|cu|h|hpp|cuh|rs)"
 
 # Terminate on error
 set -e
 
+# Create cscope
+rm -rf ${SRC_LOC}/cscope.files
+find -L ${SRC_LOC} -regextype egrep -regex "$FILE_TYPE" \
+    | grep -vE "build|component|external" > cscope.files
+cscope -b
+
+rm -rf ${SRC_LOC}/tags
 # Create ctags
 tmp=""
 for i in "${LANGUAGES[@]}"
@@ -17,13 +24,7 @@ do
         tmp=${tmp}","${i}
     fi
 done
-#ctags -R ${SRC_LOC} --languages=${tmp}
-ctags -a -e -f tags --options="${HOME}/.vim/plugin/ctags.rust" --languages=${tmp} -R ${SRC_LOC} --exclude=build
 
-# Create cscope
-rm -f cscope.files cscope.out
-for i in "${FILE_TYPE[@]}"
-do
-	find -L ${SRC_LOC} -name \*.${i} >> cscope.files
-done
-cscope -b
+#ctags -R ${SRC_LOC} --languages=${tmp}
+ctags --langmap=C++:+cu --langmap=C++:+.cuh --languages=${tmp} \
+    --exclude=build --exclude=components --exclude=external -L cscope.files

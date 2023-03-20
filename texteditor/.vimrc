@@ -84,6 +84,17 @@ let g:syntastic_rust_checkers=['cargo']
 let g:syntastic_check_on_open = 1
 let g:tagbar_left = 1
 
+" Auto format c/c++ code on save
+function FormatBuffer()
+    if &omdified && !empty(findfile('.clang-format', expand('%:p:h') . ';'))
+        let cursor_pos = getpos('.')
+        :%!clang-format
+        call setpos('.', cursor_pos)
+    endif
+endfunction
+
+autocmd Filetype c,cpp,proto autocmd BufWritePre <buffer> :call FormatBuffer()
+
 " Use G=gg to apply formatting
 autocmd Filetype c,cpp,proto setlocal equalprg=clang-format
 
