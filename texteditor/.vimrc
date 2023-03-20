@@ -77,6 +77,8 @@ let g:syntastic_cpp_cpplint_args = '--headers=hpp'
 let g:syntastic_enable_cpp_checker = 1
 let g:syntastic_cpp_check_header = 1
 
+let g:rustfmt_autosave = 1
+
 let g:syntastic_rust_checkers=['cargo']
 
 let g:syntastic_check_on_open = 1
