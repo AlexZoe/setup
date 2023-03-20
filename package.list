@@ -60,3 +60,5 @@ colordiff
 cscope
 vifm
 clang-format
+cppcheck
+clang-tidy
