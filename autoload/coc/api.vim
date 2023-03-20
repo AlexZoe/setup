@@ -602,7 +602,7 @@ endfunction
 
 function! s:funcs.buf_get_var(bufnr, name)
   call s:check_bufnr(a:bufnr)
-  if !has_key(getbufvar(a:bufnr, ''), a:name)
+  if !has_key(b:, a:name)
     throw 'Key not found: '.a:name
   endif
   return getbufvar(a:bufnr, a:name)
@@ -616,8 +616,11 @@ endfunction
 
 function! s:funcs.buf_del_var(bufnr, name)
   call s:check_bufnr(a:bufnr)
-  let bufvars = getbufvar(a:bufnr, '')
-  call remove(bufvars, a:name)
+  if a:bufnr == bufnr('%')
+    execute 'unlet! b:'.a:name
+  else
+    call s:buf_execute(a:bufnr, ['unlet! b:'.a:name])
+  endif
   return v:null
 endfunction
 
