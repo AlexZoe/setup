@@ -62,3 +62,7 @@ vifm
 clang-format
 cppcheck
 clang-tidy
+ninja-build
+gettext
+unzip
+curl
