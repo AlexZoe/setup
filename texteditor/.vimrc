@@ -86,7 +86,7 @@ let g:tagbar_left = 1
 
 " Auto format c/c++ code on save
 function FormatBuffer()
-    if &omdified && !empty(findfile('.clang-format', expand('%:p:h') . ';'))
+    if &modified && !empty(findfile('.clang-format', expand('%:p:h') . ';'))
         let cursor_pos = getpos('.')
         :%!clang-format
         call setpos('.', cursor_pos)
