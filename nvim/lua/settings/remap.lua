@@ -56,3 +56,7 @@ vim.keymap.set("i", "<leader>{", "{}<Left>")
 vim.keymap.set("i", "<leader>(", "()<Left>")
 vim.keymap.set("i", "<leader><", "<><Left>")
 vim.keymap.set("i", "<leader>[", "[]<Left>")
+
+-- Matching closing string
+vim.keymap.set("i", "<leader>\"", "\"<Left>\"")
+vim.keymap.set("i", "<leader>\'", "\'<Left>\'")
