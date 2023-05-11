@@ -60,3 +60,7 @@ vim.keymap.set("i", "<leader>[", "[]<Left>")
 -- Matching closing string
 vim.keymap.set("i", "<leader>\"", "\"<Left>\"")
 vim.keymap.set("i", "<leader>\'", "\'<Left>\'")
+
+-- telescope mappings
+-- preview scroll: <C-d>, <C-u>
+-- select scroll: <C-n>, <C-p>
