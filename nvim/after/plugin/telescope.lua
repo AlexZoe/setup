@@ -6,6 +6,7 @@ require('telescope').setup{
             'smart',
             ['truncate'] = 5,
         },
+        layout_strategy = 'vertical',
     },
 }
 
