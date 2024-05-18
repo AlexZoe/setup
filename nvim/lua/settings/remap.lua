@@ -51,16 +51,6 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 -- Add executable flag to file
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
--- Matching closing braces
-vim.keymap.set("i", "<leader>{", "{}<Left>")
-vim.keymap.set("i", "<leader>(", "()<Left>")
-vim.keymap.set("i", "<leader><", "<><Left>")
-vim.keymap.set("i", "<leader>[", "[]<Left>")
-
--- Matching closing string
-vim.keymap.set("i", "<leader>\"", "\"<Left>\"")
-vim.keymap.set("i", "<leader>\'", "\'<Left>\'")
-
 -- telescope mappings
 -- preview scroll: <C-d>, <C-u>
 -- select scroll: <C-n>, <C-p>
