@@ -1,3 +1,2 @@
-tags
-cscope.*
-*.swp
+build
+target
