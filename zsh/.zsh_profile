@@ -1,0 +1,5 @@
+function fuzzy() { find . -type d -print | fzf; zle reset-prompt; zle redisplay }
+zle -N fuzzy
+bindkey '^f' fuzzy
+
+alias vv='nvim'
