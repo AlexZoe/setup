@@ -48,5 +48,9 @@ return require('packer').startup(function(use)
   }
 
   use { 'RaafatTurki/hex.nvim' }
+  use {
+      'stevearc/aerial.nvim',
+      config = function() require('aerial').setup() end
+  }
 
 end)
