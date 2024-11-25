@@ -32,8 +32,8 @@ tmux has-session -t $SESSIONNAME > /dev/null 2>&1
 
 if [ $? != 0 ]; then
     tmux new-session -s $SESSIONNAME -n editor -d
-    tmux new-window -n build
-    tmux new-window -n docs
+    tmux new-window -n build -t $SESSIONNAME
+    tmux new-window -n docs -t $SESSIONNAME
 fi
 
 if [ -n "$ATTACH" ]; then
