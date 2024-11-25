@@ -20,6 +20,7 @@ vim.keymap.set("n", "N", "Nzzzv")
 
 -- Keep pastet item
 vim.keymap.set("n", "<leader>p", "\"_dP")
+vim.keymap.set("v", "<leader>p", "\"_dP")
 
 -- Copy to global clipboard
 vim.keymap.set("n", "<leader>y", "\"+y")
@@ -34,11 +35,14 @@ vim.keymap.set("v", "<leader>d", "\"_d")
 vim.keymap.set("n", "Q", "<nop>")
 
 -- New tmux session
-vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux new tmux-sessionizer<CR>")
 
 vim.keymap.set("n", "<leader>f", function()
     vim.lsp.buf.format()
 end)
+
+vim.keymap.set("n", "<leader>n", "<cmd>bn<CR>")
+vim.keymap.set("n", "<leader>p", "<cmd>bp<CR>")
 
 -- Vim Quickfix list (TBD)
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
