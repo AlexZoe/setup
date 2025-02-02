@@ -1,17 +1,16 @@
 sshfs
 device-tree-compiler
-libssl1.1
 libssl-dev
 libmpfr-dev
 libmpc-dev
 tmux
 cmake
+make
 g++
 cmake-curses-gui
 gnat
 libfl2
 libfl-dev
-zlibc
 zlib1g
 zlib1g-dev
 bison
@@ -22,7 +21,6 @@ gitk
 openssl
 libssl-dev
 texstudio
-vim-gtk
 codespell
 sparse
 build-essential
