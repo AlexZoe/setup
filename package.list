@@ -3,6 +3,7 @@ device-tree-compiler
 libssl-dev
 libmpfr-dev
 libmpc-dev
+vim-gtk3
 tmux
 cmake
 make

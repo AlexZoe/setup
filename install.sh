@@ -5,6 +5,9 @@ SETUP_DIR=${SCRIPT_DIR}/tmp
 
 PACKAGE_LIST=${SCRIPT_DIR}/package.list
 
+ln -sf ${SCRIPT_DIR}/tmux/.tmux.conf ~/
+sudo ln -sf ${SCRIPT_DIR}/tmux/setup_session.sh /usr/local/bin/se
+
 # Install packages from list
 sudo apt update
 sudo apt-get install $(cat ${PACKAGE_LIST}) -y
@@ -13,6 +16,9 @@ sudo apt-get install $(cat ${PACKAGE_LIST}) -y
 git clone https://github.com/neovim/neovim.git ${SETUP_DIR}/neovim
 make -C ${SETUP_DIR}/neovim -j CMAKE_BUILD_TYPE=RelWithDebInfo
 sudo make -C ${SETUP_DIR}/neovim -j install
+
+mkdir -p ~/.config
+ln -s ${SCRIPT_DIR}/nvim ~/.config/
 
 # neovim packet manager
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
